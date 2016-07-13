@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 09, 2016 at 10:08 PM
+-- Generation Time: Jul 13, 2016 at 10:23 PM
 -- Server version: 5.5.49-0ubuntu0.14.04.1
 -- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
@@ -19,6 +19,22 @@ SET time_zone = "+00:00";
 --
 -- Database: `project_laravel`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `abouts`
+--
+
+CREATE TABLE IF NOT EXISTS `abouts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -77,7 +93,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2016_06_18_023710_create_cates_table', 2),
 ('2016_06_18_024845_create_table_cates', 3),
 ('2016_06_18_025044_create_products_table', 4),
-('2016_06_18_030032_create_product_images_table', 5);
+('2016_06_18_030032_create_product_images_table', 5),
+('2016_07_13_152037_create_abouts_table', 6);
 
 -- --------------------------------------------------------
 
@@ -193,7 +210,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `level`, `remember_t
 (4, 'admin5', 'admin5.1000@gmail.com', '$2y$10$im2yySD4MbEaItlIlgEP1uhGZYQprVvQq1TACHKTM4Vk4Yl.TFIvS', 1, 'NThJVBFY8G5nfhzWeXMatFx8mVYApYzniAKxLbcIg4Fl3RASO1TrACkkJnWR', '2016-06-24 23:11:40', '2016-07-04 01:35:04'),
 (8, 'member3', 'member3.556@gmail.com', '$2y$10$lca2AyB4lvgxK/XelQnVsOhzCOz/WXLr6L6L1UcciRGilzzpCED5S', 2, 'QbxL3G3bg6DoYU19NMkXm6Ms8zBBcRHbjgsNvHOa', '2016-06-25 08:39:33', '2016-06-25 20:23:58'),
 (9, 'member4', 'member4@gmail.com', '$2y$10$HtvelZ/gKA5Yv/ATYvybk.otNvlGhGUQjr8TlBZycxxzN6K.wgn9m', 1, 'm4AZHCTpuGLaw2hAJIqQIdcORTDOtuTNBZbZSQU8', '2016-06-25 20:23:23', '2016-07-04 01:34:55'),
-(10, 'admin6', 'admin6@gmail.com', '$2y$10$bXSB/7ETZZ56.O9cGG8z0OIVB.14ljwO.8/WmK8u441JDTBJ29uLq', 1, 'Dwm3diGOawy7fMLeKdxzPp6kHmap7lxzEMZYa8cYVtzYvzRE06ZFv20OsSbD', '2016-07-04 01:34:25', '2016-07-04 01:41:14');
+(10, 'admin6', 'admin6@gmail.com', '$2y$10$bXSB/7ETZZ56.O9cGG8z0OIVB.14ljwO.8/WmK8u441JDTBJ29uLq', 1, 'QYYoJZWltoLNJfqgvoEKvYdxw8dAPajq0Fbi0JCuTzrNn1n4V5Bp399x6lEi', '2016-07-04 01:34:25', '2016-07-13 08:04:42');
 
 --
 -- Constraints for dumped tables

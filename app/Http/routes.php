@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','WelcomeController@index');
+Route::get('/','HomeController@index');
 
 Route::get('home', 'HomeController@index');
 Route::get('home/category/{id}/{alias}',['as'=>'home.cate','uses'=>'HomeController@getCate']);
@@ -23,7 +23,13 @@ Route::get('home/cart',['as'=>'home.getCart','uses'=>'HomeController@getCart']);
 Route::get('home/cart/delete/{rowId}',['as'=>'home.deleteProductCart','uses'=>'HomeController@deleteProductCart']);
 Route::get('home/cart/update',['as'=>'home.updateCart','uses'=>'HomeController@updateCart']);
 
+
+
+
 Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
+	Route::get('index',function(){
+		return redirect()->route('admin.user.getList');
+	});
 	Route::group(['prefix'=>'cate'],function(){
 		Route::get('list',['as'=>'admin.cate.getList','uses'=>'CateController@getList']);
 		Route::get('add',['as'=>'admin.cate.getAdd','uses'=>'CateController@getAdd']);

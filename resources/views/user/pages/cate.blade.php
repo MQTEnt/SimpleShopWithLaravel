@@ -29,26 +29,16 @@ Category
 				</div>
 				<!--  Best Seller -->  
 				<div class="sidewidt">
-					<h2 class="heading2"><span>Best Seller</span></h2>
+					<h2 class="heading2"><span>Random Products</span></h2>
 					<ul class="bestseller">
+					@foreach($randomProducts as $item)
 						<li>
-							<img width="50" height="50" src="{{asset('user/img/prodcut-40x40.jpg')}}" alt="product" title="product">
-							<a class="productname" href="product.html"> Product Name</a>
-							<span class="procategory">Women Accessories</span>
-							<span class="price">$250</span>
+							<img width="50" height="50" src="{{asset('upload/'.$item->image)}}" alt="product" title="product">
+							<a class="productname" href="{{route('home.product',[$item->id,$item->alias])}}">{{$item->name}}</a>
+							<span class="procategory">new</span>
+							<span class="price">$ {{$item->price}}</span>
 						</li>
-						<li>
-							<img width="50" height="50" src="{{asset('user/img/prodcut-40x40.jpg')}}" alt="product" title="product">
-							<a class="productname" href="product.html"> Product Name</a>
-							<span class="procategory">Electronics</span>
-							<span class="price">$250</span>
-						</li>
-						<li>
-							<img width="50" height="50" src="{{asset('user/img/prodcut-40x40.jpg')}}" alt="product" title="product">
-							<a class="productname" href="product.html"> Product Name</a>
-							<span class="procategory">Electronics</span>
-							<span class="price">$250</span>
-						</li>
+					@endforeach
 					</ul>
 				</div>
 				<!-- Latest Product -->  

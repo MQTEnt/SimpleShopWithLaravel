@@ -54,14 +54,21 @@ class HomeController extends Controller {
 		$cates=DB::table('cates')->select(['id','name','alias'])
 					->where('parent_id',$currentCate->parent_id)
 					->get();
-		//Lastest Product
+		//Lastest Products
 		$lastestProducts=DB::table('products')->select(['id','name','image','price','alias'])
 							->where('cate_id',$id)
 							->orderBy('id','DESC')
 							->skip(0)
 							->take(3)
 							->get();
-		return view('user.pages.cate',compact(['cates','products','lastestProducts','currentCate']));
+		//Random Products
+		//Su dung raw query
+		$randomProducts=DB::table('products')->select(['id','name','image','price','alias'])
+							->orderBy(DB::raw('RAND()'))
+							->limit(3)
+							->get();
+
+		return view('user.pages.cate',compact(['cates','products','lastestProducts','currentCate','randomProducts']));
 	}
 	public function getProduct($id)
 	{
