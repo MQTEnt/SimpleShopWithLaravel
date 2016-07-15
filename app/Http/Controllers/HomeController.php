@@ -39,7 +39,8 @@ class HomeController extends Controller {
 					->skip(0)
 					->take(4)
 					->get();
-		return view('user.pages.home',compact('products'));
+		$banners=DB::table('abouts')->select('value')->where('type','banner')->get();
+		return view('user.pages.home',compact(['products','banners']));
 	}
 	public function getCate($id)
 	{

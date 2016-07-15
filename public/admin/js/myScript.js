@@ -83,3 +83,45 @@ $(document).ready(function(){
 		});
 	}
 });
+
+//Update About
+$(document).ready(function(){
+	$('#btnUpdateAbout').click(function(){
+		urlRequestUpdateAbout='/admin/about/updateAbout';
+		token=$("input[name='_token'").val();
+		txtAbout=CKEDITOR.instances.txtAbout.getData()
+		$.ajax({
+			url: urlRequestUpdateAbout,
+			type: 'POST',
+			cache: false,
+			data: {"_token": token, "txtAbout": txtAbout},
+			success: function(data){
+				if(data=='1')
+					alert('Update Success');
+				else
+					alert('Error');
+			}
+		});
+	});
+});
+
+//Add Banner
+$(document).ready(function(){
+	$('#btnAddBanner').click(function(){
+		$('.addfilebannerarea').prepend('<input type="file" name="fileBanner[]">');
+	});
+
+	//Ngan submit form de kiem tra dieu kien
+	$("form[name='frmUploadBanner'").on('submit',function(e){
+		var files=$("input[name='fileBanner[]']");
+		var a=[1,2];
+		$.each(files,function( index, val){
+			if(val.value=="")
+			{
+				e.preventDefault();
+				alert('Input file have not to blank');
+				return false;
+			}
+		});
+	})
+});

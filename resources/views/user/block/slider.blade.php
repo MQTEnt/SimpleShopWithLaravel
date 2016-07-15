@@ -2,18 +2,11 @@
   <div class="container">
     <div class="flexslider" id="mainslider">
       <ul class="slides">
+      @foreach($banners as $banner)
         <li>
-          <img src="{{asset('user/img/banner1.jpg')}}" alt="" />
+          <img src="{{asset('upload/banners/'.$banner->value)}}" alt="" />
         </li>
-        <li>
-          <img src="{{asset('user/img/banner2.jpg')}}" alt="" />
-        </li>
-        <li>
-          <img src="{{asset('user/img/banner1.jpg')}}" alt="" />
-        </li>
-        <li>
-          <img src="{{asset('user/img/banner2.jpg')}}" alt="" />
-        </li>
+      @endforeach
       </ul>
     </div>
   </div>

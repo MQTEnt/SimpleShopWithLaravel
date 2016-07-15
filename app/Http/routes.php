@@ -55,6 +55,13 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 		Route::post('edit/{id}',['as'=>'admin.user.postEdit','uses'=>'UserController@postEdit']);
 		Route::get('delete/{id}',['as'=>'admin.user.getDelete','uses'=>'UserController@getDelete']);
 	});
+
+	Route::group(['prefix'=>'about','middleware'],function(){
+		Route::get('index',['as'=>'admin.about.index','uses'=>'AboutController@index']);
+		Route::post('updateAbout',['as'=>'admin.about.updateAbout','uses'=>'AboutController@updateAbout']);
+		Route::get('listBanner',['as'=>'admin.about.listBanner','uses'=>'AboutController@listBanner']);
+		Route::post('uploadBanner',['as'=>'admin.about.uploadBanner','uses'=>'AboutController@uploadBanner']);
+	});
 });
 
 Route::controllers([

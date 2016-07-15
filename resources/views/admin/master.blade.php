@@ -19,10 +19,14 @@
     <link href="{{url('/admin/bower_components/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
     <!-- DataTables CSS -->
+    <!--
     <link href="{{url('/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css')}}" rel="stylesheet">
-
+    -->
+    
     <!-- DataTables Responsive CSS -->
+    <!--
     <link href="{{url('/admin/bower_components/datatables-responsive/css/dataTables.responsive.css')}}" rel="stylesheet">
+    -->
 
     <!-- CKEditor CKFinder-->
     <script src="{{url('/admin/js/ckeditor/ckeditor.js')}}"></script>
@@ -170,8 +174,12 @@
     <script src="{{url('/admin/dist/js/sb-admin-2.js')}}"></script>
 
     <!-- DataTables JavaScript -->
+    <!--
     <script src="{{url('bower_components/DataTables/media/js/jquery.dataTables.min.js')}}"></script>
     <script src="{{url('/admin/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js')}}"></script>
+    -->
+    
+    <!-- My Script -->
     <script src="{{url('/admin/js/myScript.js')}}"></script>
 </body>
 
