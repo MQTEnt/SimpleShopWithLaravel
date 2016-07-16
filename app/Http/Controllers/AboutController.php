@@ -9,6 +9,7 @@ use Request;
 use Input;
 //use App\Http\Requests\BannerFormRequest;
 use Validator;
+use File;
 class AboutController extends Controller {
 	public function index()
 	{
@@ -30,7 +31,7 @@ class AboutController extends Controller {
 	}
 	public function listBanner()
 	{
-		$banners=About::select('value')->where('type','banner')->get()->toArray();
+		$banners=About::select(['id','value'])->where('type','banner')->get()->toArray();
 		//var_dump($banners);
 		return view('admin.about.listbanner',compact('banners'));
 	}
@@ -70,14 +71,26 @@ class AboutController extends Controller {
 		}
 		foreach($files as $index => $file)
 		{
-			$fileName=$file->getClientOriginalName();
+			$banner=new About();
+			$banner->save(); //Luu lai lan dau de lay id
+			$fileName=$banner->id.$file->getClientOriginalName();
 			$file->move('upload/banners/',$fileName);
-			About::create([
-				'name' => 'banner',
-				'type' => 'banner',
-				'value'=> $fileName
-			]);
+			$banner->name='banner';
+			$banner->type='banner';
+			$banner->value=$fileName;
+			$banner->save();
 		}
 		return redirect()->route('admin.about.listBanner')->with(['flash_message'=>'Upload Banner Success']);
+	}
+	public function deleteBanner($id)
+	{
+		$banner=About::find($id);
+		$nameFileBanner='upload/banners/'.$banner->value;
+		if(File::exists($nameFileBanner))
+		{
+			File::delete($nameFileBanner);
+		}
+		$banner->delete();
+		return redirect()->route('admin.about.listBanner')->with(['flash_message'=>'Delete Banner Success']);
 	}
 }

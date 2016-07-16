@@ -68,8 +68,8 @@ class HomeController extends Controller {
 							->orderBy(DB::raw('RAND()'))
 							->limit(3)
 							->get();
-
-		return view('user.pages.cate',compact(['cates','products','lastestProducts','currentCate','randomProducts']));
+		$banners=DB::table('abouts')->select('value')->where('type','banner')->get();
+		return view('user.pages.cate',compact(['cates','products','lastestProducts','currentCate','randomProducts','banners']));
 	}
 	public function getProduct($id)
 	{
@@ -87,11 +87,13 @@ class HomeController extends Controller {
 							->take(4)
 							->get();
 		//var_dump($relateProducts);
-		return view('user.pages.detailProduct',compact(['product','imageDetail','relateProducts']));
+		$banners=DB::table('abouts')->select('value')->where('type','banner')->get();
+		return view('user.pages.detailProduct',compact(['product','imageDetail','relateProducts','banners']));
 	}
 	public function getContact()
 	{
-		return view('user.pages.contact');
+		$banners=DB::table('abouts')->select('value')->where('type','banner')->get();
+		return view('user.pages.contact',compact(['banners']));
 	}
 	public function postContact(Request $request)
 	{
@@ -127,7 +129,8 @@ class HomeController extends Controller {
 	{
 		$content=Cart::content();
 		$total=Cart::total();
-		return view('user.pages.shopping',compact(['content','total']));
+		$banners=DB::table('abouts')->select('value')->where('type','banner')->get();
+		return view('user.pages.shopping',compact(['content','total','banners']));
 	}
 	public function deleteProductCart($idRow)
 	{

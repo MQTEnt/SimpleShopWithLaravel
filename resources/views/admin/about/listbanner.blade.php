@@ -27,12 +27,12 @@
 			@foreach($banners as $index => $banner)
 				@if($index==0)
 				<div class="item active">
-					<button id="btnDeleteBanner" class="btn btn-danger btn-circle"> <span class="glyphicon glyphicon-remove"></span></button>
+					<a id="btnDeleteBanner" class="btn btn-danger btn-circle" href="{{route('admin.about.deleteBanner',$banner['id'])}}"> <span class="glyphicon glyphicon-remove"></span></a>
 					<img src="{{asset('upload/banners/'.$banner['value'])}}" alt="Chania" width="650" height="550">
 				</div>
 				@else
 				<div class="item">
-					<button id="btnDeleteBanner" class="btn btn-danger btn-circle"> <span class="glyphicon glyphicon-remove"></span></button>
+					<a id="btnDeleteBanner" class="btn btn-danger btn-circle" href="{{route('admin.about.deleteBanner',$banner['id'])}}"> <span class="glyphicon glyphicon-remove"></span></a>
 					<img src="{{asset('upload/banners/'.$banner['value'])}}" alt="Chania" width="650" height="550">
 				</div>
 				@endif
@@ -62,7 +62,6 @@
 			</div>
 			<button style="margin-bottom:10px" id="btnAddBanner" type="button" class="btn btn-info btn-circle"><span class="glyphicon glyphicon-plus"></span></button>
 			<div class="addfilebannerarea">
-				<button name="btnSubmitBanner" type="submit" class="btn btn-success">Submit</button>
 			</div>
 		</div>
 	</form>

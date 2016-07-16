@@ -108,6 +108,10 @@ $(document).ready(function(){
 //Add Banner
 $(document).ready(function(){
 	$('#btnAddBanner').click(function(){
+		if($('#btnSubmitBanner').length==0)
+		{
+			$('.addfilebannerarea').prepend('<button id="btnSubmitBanner" class="btn btn-success" type="submit">Submit</button>')
+		}
 		$('.addfilebannerarea').prepend('<input type="file" name="fileBanner[]">');
 	});
 
@@ -124,4 +128,10 @@ $(document).ready(function(){
 			}
 		});
 	})
+});
+//Delete banner
+$(document).ready(function(){
+	$('a#btnDeleteBanner').click(function(){
+		return confirm('Do you want to delete this banner?');
+	});
 });

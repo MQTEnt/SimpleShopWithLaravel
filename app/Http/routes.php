@@ -61,6 +61,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 		Route::post('updateAbout',['as'=>'admin.about.updateAbout','uses'=>'AboutController@updateAbout']);
 		Route::get('listBanner',['as'=>'admin.about.listBanner','uses'=>'AboutController@listBanner']);
 		Route::post('uploadBanner',['as'=>'admin.about.uploadBanner','uses'=>'AboutController@uploadBanner']);
+		Route::get('deleteBanner/{id}',['as'=>'admin.about.deleteBanner','uses'=>'AboutController@deleteBanner']);
 	});
 });
 
