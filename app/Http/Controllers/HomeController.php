@@ -147,4 +147,11 @@ class HomeController extends Controller {
 			echo "success";
 		}
 	}
+	public function getAbout()
+	{
+		$about=DB::table('abouts')->select('value')->where('type','about')->first();
+		//var_dump($about);
+		$banners=DB::table('abouts')->select('value')->where('type','banner')->get();
+		return view('user.pages.about',compact(['banners','about']));
+	}
 }

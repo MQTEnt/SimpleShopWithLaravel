@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 13, 2016 at 10:23 PM
+-- Generation Time: Jul 17, 2016 at 08:59 PM
 -- Server version: 5.5.49-0ubuntu0.14.04.1
 -- PHP Version: 5.6.23-1+deprecated+dontuse+deb.sury.org~trusty+1
 
@@ -34,7 +34,23 @@ CREATE TABLE IF NOT EXISTS `abouts` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=75 ;
+
+--
+-- Dumping data for table `abouts`
+--
+
+INSERT INTO `abouts` (`id`, `name`, `type`, `value`, `created_at`, `updated_at`) VALUES
+(1, 'about', 'about', '<p><img alt="" src="http://localhost:8000/upload/images/logo.png" style="height:159px; width:318px" /></p>\n\n<p><strong>Shop online chuy&ecirc;n cung cấp những mặt h&agrave;ng mới nhất tr&ecirc;n thị trường</strong></p>\n', '2016-07-14 03:13:51', '2016-07-16 23:32:52'),
+(2, 'facebook', 'social network', 'www.facebook.com/ID', '2016-07-14 03:17:21', '2016-07-17 06:44:06'),
+(3, 'twitter', 'social network', 'www.twitter.com/ID', '2016-07-14 03:17:51', '2016-07-17 06:44:06'),
+(4, 'phone', 'phone', '0123456789', '2016-07-14 03:19:17', '2016-07-17 06:42:21'),
+(69, 'banner', 'banner', '69banner1.1.jpg', '2016-07-16 02:00:16', '2016-07-16 02:00:16'),
+(70, 'banner', 'banner', '70banner2.1.png', '2016-07-16 02:00:16', '2016-07-16 02:00:16'),
+(71, 'banner', 'banner', '71banner3.1.png', '2016-07-16 02:00:16', '2016-07-16 02:00:16'),
+(72, 'banner', 'banner', '72banner4.1.jpg', '2016-07-16 02:00:16', '2016-07-16 02:00:16'),
+(73, 'banner', 'banner', '73banner5.1.jpg', '2016-07-16 02:00:16', '2016-07-16 02:00:16'),
+(74, 'email', 'email', 'YourEmail@gmail.com', '0000-00-00 00:00:00', '2016-07-17 06:44:06');
 
 -- --------------------------------------------------------
 

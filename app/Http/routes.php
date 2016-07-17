@@ -22,6 +22,7 @@ Route::get('home/buy/{id}',['as'=>'home.getBuy','uses'=>'HomeController@getBuy']
 Route::get('home/cart',['as'=>'home.getCart','uses'=>'HomeController@getCart']);
 Route::get('home/cart/delete/{rowId}',['as'=>'home.deleteProductCart','uses'=>'HomeController@deleteProductCart']);
 Route::get('home/cart/update',['as'=>'home.updateCart','uses'=>'HomeController@updateCart']);
+Route::get('home/about',['as'=>'home.about','uses'=>'HomeController@getAbout']);
 
 
 
@@ -62,6 +63,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function(){
 		Route::get('listBanner',['as'=>'admin.about.listBanner','uses'=>'AboutController@listBanner']);
 		Route::post('uploadBanner',['as'=>'admin.about.uploadBanner','uses'=>'AboutController@uploadBanner']);
 		Route::get('deleteBanner/{id}',['as'=>'admin.about.deleteBanner','uses'=>'AboutController@deleteBanner']);
+		Route::post('updateContact',['as'=>'admin.about.updateContact','uses'=>'AboutController@updateContact']);
 	});
 });
 

@@ -129,9 +129,45 @@ $(document).ready(function(){
 		});
 	})
 });
+
 //Delete banner
 $(document).ready(function(){
 	$('a#btnDeleteBanner').click(function(){
 		return confirm('Do you want to delete this banner?');
+	});
+});
+
+//Add contact
+$(document).ready(function(){
+	$('#btnUpdateContact').click(function(){
+		urlRequestUpdateContact="/admin/about/updateContact";
+		token=$("input[name='_token']").val();
+		txtFacebook=$("input[name='txtFacebook']").val();
+		txtTwitter=$("input[name='txtTwitter']").val();
+		txtEmail=$("input[name='txtEmail']").val();
+		txtPhone=$("input[name='txtPhone']").val();
+		$.ajax({
+			url: urlRequestUpdateContact,
+			type: "POST",
+			cache: false,
+			data: {
+				"_token": token, 
+				"txtPhone": txtPhone, 
+				"txtEmail": txtEmail, 
+				"txtFacebook": txtFacebook,
+				"txtTwitter": txtTwitter
+			},
+			success: function(dataResponse)
+			{
+				if(dataResponse=="1")
+				{
+					alert('Update Contact Success');
+				}
+				else
+				{
+					alert('Error');
+				}
+			}
+		});
 	});
 });

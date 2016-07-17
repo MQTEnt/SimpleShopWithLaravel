@@ -14,7 +14,12 @@ class AboutController extends Controller {
 	public function index()
 	{
 		$about=About::find(1);
-		return view('admin.about.index',compact('about'));
+		$phone=About::select(['id','value'])->where('name','phone')->first();
+		$facebook=About::select(['id','value'])->where('name','facebook')->first();
+		$twitter=About::select(['id','value'])->where('name','twitter')->first();
+		$email=About::select(['id','value'])->where('name','email')->first();
+		//var_dump($facebook);
+		return view('admin.about.index',compact('about','facebook','twitter','phone','email'));
 	}
 	public function updateAbout()
 	{
@@ -38,7 +43,7 @@ class AboutController extends Controller {
 	public function uploadBanner()
 	{
 		$files = Input::file('fileBanner');
-		 	// Make sure it really is an array
+		// Make sure it really is an array
 		if (!is_array($files)) 
 		{
 			$files = array($files);
@@ -92,5 +97,29 @@ class AboutController extends Controller {
 		}
 		$banner->delete();
 		return redirect()->route('admin.about.listBanner')->with(['flash_message'=>'Delete Banner Success']);
+	}
+	public function updateContact()
+	{
+		if(Request::ajax())
+		{
+			//Phone
+			$phone=About::where('name','phone')->first();
+			$phone->value=Request::get('txtPhone');
+			$phone->save();
+			//Email
+			$email=About::where('name','email')->first();
+			$email->value=Request::get('txtEmail');
+			$email->save();
+			//Facebook
+			$facebook=About::where('name','facebook')->first();
+			$facebook->value=Request::get('txtFacebook');
+			$facebook->save();
+			//Twitter
+			$twitter=About::where('name','twitter')->first();
+			$twitter->value=Request::get('txtTwitter');
+			$twitter->save();
+			return 1;
+		}
+		return 0;
 	}
 }

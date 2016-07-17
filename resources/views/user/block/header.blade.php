@@ -16,6 +16,8 @@
                 </li>
                 <li><a class="checkout" href="{{url('home/contact')}}">Contact</a>
                 </li>
+                <li><a class="myaccount" href="{{url('home/about')}}">About Us</a>
+                </li>
               </ul>
             </div>
           </div>

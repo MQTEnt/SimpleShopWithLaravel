@@ -26,6 +26,34 @@ class AboutsTableSeeder extends Seeder {
     {
         About::create(
         	[
+	        	'name' => 'about',
+	        	'type' => 'about',
+	        	'value' => 'about your shop...'
+        	]
+        );
+        About::create(
+        	[
+	        	'name' => 'facebook',
+	        	'type' => 'socialnetwork',
+	        	'value' => 'facebook.com/user'
+        	]
+        );
+        About::create(
+        	[
+	        	'name' => 'twitter',
+	        	'type' => 'socialnetwork',
+	        	'value' => 'twitter.com/user'
+        	]
+        );
+        About::create(
+        	[
+	        	'name' => 'email',
+	        	'type' => 'email',
+	        	'value' => 'user@gmail.com'
+        	]
+        );
+        About::create(
+        	[
 	        	'name' => 'phone',
 	        	'type' => 'phone',
 	        	'value' => '0123456789'
